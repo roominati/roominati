@@ -1,0 +1,30 @@
+.schedule-row {
+    height: 100px;
+    border-top-color: lightblue;
+    border-top-width: 1px;
+    border-top-style: solid;
+    display: flex;
+}
+
+.schedule-time {
+    width: 45px;
+}
+
+.schedule-lapse {
+    flex-grow: 2;
+    margin: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.schedule-lapse-1 {
+    height: 80px;
+}
+
+.schedule-lapse-2 {
+    height: 180px;
+}
+
+.schedule-lapse-3 {
+    height: 280px;
+}

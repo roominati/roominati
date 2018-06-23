@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breakout Picker!</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css" integrity="sha256-zKA1Bf41O96+gJSlkn/Bh2HATW/OhwkApPlYTp3B5O8=" crossorigin="anonymous" />
+<link rel="stylesheet" href="{{ url_for('static', filename='ruminati.css') }}" />
+<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+<section class="section">
+    <div class="container">
+        <h1 class="title">Room B510</h1>
+        <p class="subtitle">Breakout schedule</p>
+        <div>
+            {% for dt, breakout, repeat, run in schedule %}
+            <div class="schedule-row">
+                <span class="schedule-time">{{ dt.strftime('%I:%M %p') }}</span>
+                {% if breakout.is_some() and repeat == 0 %}
+                <div class="box schedule-lapse schedule-lapse-{{run}}">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>{{ breakout.name.get() }}</strong>
+                                <br>
+                                {{ breakout.description.get() }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
